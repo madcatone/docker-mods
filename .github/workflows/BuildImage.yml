@@ -3,9 +3,9 @@ name: Build Image
 on: [push, pull_request, workflow_dispatch]
 
 env:
-  ENDPOINT: "linuxserver/mods" #don't modify
-  BASEIMAGE: "madcatone/docker-mods" #replace
-  MODNAME: "code-server-python3-mod-pandas" #replace
+  ENDPOINT: "madcatone/mods" #don't modify
+  BASEIMAGE: "code-server" #replace
+  MODNAME: "python3-mod-pandas" #replace
 
 jobs:
   build:
