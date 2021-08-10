@@ -1,0 +1,4 @@
+pandas==1.2.3
+SQLAlchemy==1.4.11
+psycopg2-binary
+
