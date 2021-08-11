@@ -40,7 +40,7 @@ RUN apt-get update && apt-get install -y \
     libxslt libxslt-dev \
     libjpeg-turbo-dev zlib-dev \
     libpq postgresql-dev \
-    py3-pip
+    python3-pip
 
 # COPY requirements.txt "${MAIN_DIR}"
 COPY requirements.txt /
