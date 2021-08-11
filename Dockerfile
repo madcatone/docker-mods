@@ -9,7 +9,15 @@ FROM ghcr.io/linuxserver/baseimage-alpine:3.12 as buildstage
 RUN \
  echo "**** install packages ****" && \
  apk add --no-cache \
-	curl && \
+	curl wget vim \
+        python3 python3-dev gcc \
+        gfortran musl-dev g++ \
+        libffi-dev openssl-dev \
+        libxml2 libxml2-dev \
+        libxslt libxslt-dev \
+        libjpeg-turbo-dev zlib-dev \
+        libpq postgresql-dev \
+        python3-pip && \
  echo "**** grab rclone ****" && \
  mkdir -p /root-layer && \
  curl -o \
@@ -31,23 +39,23 @@ LABEL maintainer="ryan.hung"
 
 # WORKDIR "${MAIN_DIR}"
 
-RUN apt-get update && apt-get install -y \
-    curl wget vim \
-    python3 python3-dev gcc \
-    gfortran musl-dev g++ \
-    libffi-dev openssl-dev \
-    libxml2 libxml2-dev \
-    libxslt libxslt-dev \
-    libjpeg-turbo-dev zlib-dev \
-    libpq postgresql-dev \
-    python3-pip
+#RUN apt-get update && apt-get install -y \
+#    curl wget vim \
+#    python3 python3-dev gcc \
+#    gfortran musl-dev g++ \
+#    libffi-dev openssl-dev \
+#    libxml2 libxml2-dev \
+#    libxslt libxslt-dev \
+#    libjpeg-turbo-dev zlib-dev \
+#    libpq postgresql-dev \
+#    python3-pip
 
 # COPY requirements.txt "${MAIN_DIR}"
-COPY requirements.txt /
+#COPY requirements.txt /
 
-RUN pip3 install --upgrade cython \
-    && pip3 install --upgrade pip \
-    && pip3 install -r requirements.txt
+#RUN pip3 install --upgrade cython \
+#    && pip3 install --upgrade pip \
+#    && pip3 install -r requirements.txt
 # python env end
 
 # Add files from buildstage
