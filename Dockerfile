@@ -25,11 +25,11 @@ FROM scratch
 LABEL maintainer="ryan.hung"
 
 ## python env
-ENV MAIN_DIR=/home/coder
+# ENV MAIN_DIR=/home/coder
 
-RUN mkdir -p "${MAIN_DIR}"
+# RUN mkdir -p "${MAIN_DIR}"
 
-WORKDIR "${MAIN_DIR}"
+# WORKDIR "${MAIN_DIR}"
 
 RUN apt-get update && apt-get install -y \
     curl wget vim \
@@ -42,7 +42,8 @@ RUN apt-get update && apt-get install -y \
     libpq postgresql-dev \
     py3-pip
 
-COPY requirements.txt "${MAIN_DIR}"
+# COPY requirements.txt "${MAIN_DIR}"
+COPY requirements.txt /
 
 RUN pip3 install --upgrade cython \
     && pip3 install --upgrade pip \
