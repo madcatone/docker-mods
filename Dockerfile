@@ -17,7 +17,7 @@ RUN \
         libxslt libxslt-dev \
         libjpeg-turbo-dev zlib-dev \
         libpq postgresql-dev \
-        python3-pip && \
+        py3-pip && \
  echo "**** grab rclone ****" && \
  mkdir -p /root-layer && \
  curl -o \
